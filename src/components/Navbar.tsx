@@ -22,6 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
     { label: 'ABOUT', href: '#about' },
     { label: 'PRACTICE AREAS', href: '#practice-areas' },
     { label: 'INSIGHTS', href: '#insights' },
+    { label: 'VIDEOS', href: '#videos' },
     { label: 'FAQS', href: '#faqs' },
     { label: 'CONTACT', href: '#contact' },
   ]
@@ -46,13 +47,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
         </a>
 
         {/* Desktop Menu Navigation (Exact layout from reference) */}
-        <div className="hidden lg:flex items-center space-x-7">
-          <nav className="flex items-center space-x-7 text-[12px] font-semibold tracking-[0.18em]">
+        <div className="hidden lg:flex items-center space-x-5 xl:space-x-7">
+          <nav className="flex items-center space-x-4 xl:space-x-6 text-[11px] xl:text-[12px] font-semibold tracking-[0.15em] xl:tracking-[0.18em]">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="text-slate-200 hover:text-white transition-colors duration-200 uppercase"
+                className="text-slate-200 hover:text-white transition-colors duration-200 uppercase whitespace-nowrap"
               >
                 {link.label}
               </a>
