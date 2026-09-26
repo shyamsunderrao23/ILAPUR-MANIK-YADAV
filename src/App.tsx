@@ -5,6 +5,7 @@ import { PracticeAreas } from './components/PracticeAreas'
 import { VisionMission } from './components/VisionMission'
 import { CoreValuesExpertise } from './components/CoreValuesExpertise'
 import { InsightsSection } from './components/InsightsSection'
+import { VideosSection } from './components/VideosSection'
 import { FAQSection } from './components/FAQSection'
 import { ContactSection } from './components/ContactSection'
 import { ConsultationModal } from './components/ConsultationModal'
@@ -37,6 +38,9 @@ function App() {
 
         {/* Legal Insights Section (Pure Black Background) */}
         <InsightsSection />
+
+        {/* Videos Section matching VIDEOS navbar link */}
+        <VideosSection />
 
         {/* FAQs Section (Placed above Get in Touch / Contact) */}
         <FAQSection />
