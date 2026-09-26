@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react'
-import { Play, Maximize2 } from 'lucide-react'
+import React, { useState, useRef, useEffect } from 'react'
+import { Volume2, VolumeX, Maximize2 } from 'lucide-react'
 import video1 from '../assets/vidoe-1.mp4'
 import video2 from '../assets/video-2.mp4'
 import video3 from '../assets/vidoe-3.mp4'
@@ -12,7 +12,13 @@ interface VideoItem {
 
 export const VideosSection: React.FC = () => {
   const [activeVideoModal, setActiveVideoModal] = useState<string | null>(null)
-  const [playingId, setPlayingId] = useState<string | null>(null)
+  const [mutedStates, setMutedStates] = useState<{ [key: string]: boolean }>({
+    'vid-1': true,
+    'vid-2': true,
+    'vid-3': true,
+    'vid-4': true,
+  })
+
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({})
 
   const videoList: VideoItem[] = [
@@ -22,29 +28,48 @@ export const VideosSection: React.FC = () => {
     { id: 'vid-4', src: video4 }
   ]
 
-  const handlePlayToggle = (id: string) => {
-    const videoEl = videoRefs.current[id]
-    if (!videoEl) return
+  // Ensure all videos play on mount
+  useEffect(() => {
+    Object.values(videoRefs.current).forEach((videoEl) => {
+      if (videoEl) {
+        videoEl.muted = true
+        videoEl.play().catch(() => {
+          // Autoplay fallback
+        })
+      }
+    })
+  }, [])
 
-    if (playingId === id) {
-      videoEl.pause()
-      setPlayingId(null)
-    } else {
-      // Pause any other playing video
-      Object.keys(videoRefs.current).forEach((key) => {
-        if (key !== id) {
+  const toggleMute = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    const currentMuted = mutedStates[id]
+    const targetMuted = !currentMuted
+
+    setMutedStates((prev) => {
+      const next = { ...prev }
+      if (!targetMuted) {
+        // If unmuting this video, mute all other videos
+        Object.keys(next).forEach((key) => {
+          next[key] = key === id ? false : true
           const el = videoRefs.current[key]
-          if (el) el.pause()
-        }
-      })
-      videoEl.play()
-      setPlayingId(id)
-    }
+          if (el) {
+            el.muted = key === id ? false : true
+          }
+        })
+      } else {
+        next[id] = true
+        const el = videoRefs.current[id]
+        if (el) el.muted = true
+      }
+      return next
+    })
   }
 
   return (
-    <section id="videos" className="py-16 lg:py-24 bg-black text-white relative border-t border-neutral-800 overflow-hidden">
-      
+    <section 
+      id="videos" 
+      className="scroll-mt-28 py-16 lg:py-24 bg-black text-white relative border-t border-neutral-800 overflow-hidden"
+    >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 space-y-10">
         
         {/* Section Header */}
@@ -55,51 +80,66 @@ export const VideosSection: React.FC = () => {
           <div className="w-16 h-1 bg-amber-400 mx-auto rounded-full mt-3" />
         </div>
 
-        {/* 4 Videos In A Single Line (Grid with 4 columns on desktop) */}
+        {/* 4 Autoplay Videos In A Single Line (4 Columns on Desktop) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
           {videoList.map((item) => {
-            const isCurrentPlaying = playingId === item.id
+            const isMuted = mutedStates[item.id] ?? true
 
             return (
               <div 
                 key={item.id}
-                className="group relative rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-amber-400/60 shadow-xl overflow-hidden aspect-[9/16] sm:aspect-[3/4] lg:aspect-[9/16] flex items-center justify-center transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
+                className="group relative rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-amber-400/60 shadow-xl overflow-hidden aspect-[9/16] sm:aspect-[3/4] lg:aspect-[9/16] flex items-center justify-center transition-all duration-300 hover:shadow-2xl"
               >
-                {/* Video Player */}
+                {/* Autoplaying Looped Video */}
                 <video
                   ref={(el) => {
                     videoRefs.current[item.id] = el
                   }}
                   src={item.src}
-                  controls
+                  autoPlay
+                  loop
+                  muted={isMuted}
                   playsInline
-                  preload="metadata"
-                  onPlay={() => setPlayingId(item.id)}
-                  onPause={() => {
-                    if (playingId === item.id) setPlayingId(null)
-                  }}
-                  className="w-full h-full object-cover"
+                  preload="auto"
+                  className="w-full h-full object-cover pointer-events-none"
                 />
 
-                {/* Play Overlay (Visible when paused) */}
-                {!isCurrentPlaying && (
-                  <button
-                    onClick={() => handlePlayToggle(item.id)}
-                    className="absolute inset-0 m-auto w-14 h-14 rounded-full bg-black/75 hover:bg-amber-400 text-white hover:text-black border border-white/20 hover:border-amber-400 flex items-center justify-center transition-all duration-300 transform group-hover:scale-110 shadow-2xl cursor-pointer backdrop-blur-sm z-10"
-                    aria-label="Play Video"
-                  >
-                    <Play className="w-6 h-6 ml-0.5 fill-current" />
-                  </button>
-                )}
-
-                {/* Expand Modal Trigger */}
+                {/* Top Right Fullscreen Button */}
                 <button
                   onClick={() => setActiveVideoModal(item.src)}
-                  className="absolute top-3 right-3 z-20 p-2 rounded-lg bg-black/70 hover:bg-black text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer opacity-80 hover:opacity-100"
+                  className="absolute top-3 right-3 z-20 p-2 rounded-full bg-black/60 hover:bg-black text-white/80 hover:text-white border border-white/15 transition-all cursor-pointer backdrop-blur-sm shadow-md"
                   title="Fullscreen View"
+                  aria-label="Expand video"
                 >
                   <Maximize2 className="w-4 h-4" />
                 </button>
+
+                {/* Bottom Mute / Unmute Button Overlay */}
+                <div className="absolute bottom-4 right-4 z-20">
+                  <button
+                    onClick={(e) => toggleMute(item.id, e)}
+                    className={`flex items-center gap-2 px-3.5 py-2 rounded-full transition-all duration-200 backdrop-blur-md shadow-lg cursor-pointer font-sans text-xs font-semibold ${
+                      !isMuted
+                        ? 'bg-amber-400 text-black shadow-amber-400/30'
+                        : 'bg-black/70 hover:bg-black/90 text-white border border-white/20'
+                    }`}
+                    title={isMuted ? 'Click to unmute' : 'Click to mute'}
+                    aria-label={isMuted ? 'Unmute audio' : 'Mute audio'}
+                  >
+                    {isMuted ? (
+                      <>
+                        <VolumeX className="w-4 h-4 text-white/90" />
+                        <span className="hidden group-hover:inline">Unmute</span>
+                      </>
+                    ) : (
+                      <>
+                        <Volume2 className="w-4 h-4 text-black animate-pulse" />
+                        <span>Sound On</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
               </div>
             )
           })}
