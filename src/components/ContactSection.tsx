@@ -11,12 +11,26 @@ export const ContactSection: React.FC = () => {
     lastName: '',
     email: '',
     phone: '',
+    practiceArea: 'High Court Writs & Constitutional Law',
     message: ''
   })
+
+  const getWhatsAppUrl = () => {
+    const text = `*New Legal Consultation Request - Chamber of Dr. Ilapur Manik Yadav*\n\n` +
+      `*Name:* ${formData.firstName} ${formData.lastName}\n` +
+      `*Phone:* ${countryCode} ${formData.phone}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Practice Area:* ${formData.practiceArea}\n` +
+      `*Requirement:* ${formData.message}`
+
+    return `https://wa.me/919652440024?text=${encodeURIComponent(text)}`
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitted(true)
+    const url = getWhatsAppUrl()
+    window.location.href = url
   }
 
   return (
@@ -50,23 +64,33 @@ export const ContactSection: React.FC = () => {
 
               {submitted ? (
                 <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-slate-950 text-white flex items-center justify-center mx-auto">
+                  <div className="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center mx-auto">
                     <Check className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-950 font-sans">Message Sent Successfully</h3>
+                  <h3 className="text-xl font-bold text-slate-950 font-sans">Redirecting to WhatsApp...</h3>
                   <p className="text-sm text-slate-600">
-                    Thank you, <strong>{formData.firstName}</strong>. Our chamber team has received your message and will respond shortly.
+                    Thank you, <strong>{formData.firstName}</strong>. Your consultation details for <strong>{formData.practiceArea}</strong> are being forwarded to Chamber WhatsApp.
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSubmitted(false)
-                      setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' })
-                    }}
-                    className="px-6 py-2.5 bg-slate-950 text-white text-xs font-bold uppercase rounded-full hover:bg-slate-800 transition-colors"
-                  >
-                    Send Another Message
-                  </button>
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                      href={getWhatsAppUrl()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold uppercase rounded-full transition-colors inline-flex items-center gap-2 shadow-sm"
+                    >
+                      Chat on WhatsApp (+91 9652440024)
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSubmitted(false)
+                        setFormData({ firstName: '', lastName: '', email: '', phone: '', practiceArea: 'High Court Writs & Constitutional Law', message: '' })
+                      }}
+                      className="px-6 py-2.5 border border-slate-300 text-slate-700 text-xs font-bold uppercase rounded-full hover:bg-slate-100 transition-colors"
+                    >
+                      Send Another Message
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 text-left">
@@ -135,12 +159,32 @@ export const ContactSection: React.FC = () => {
                       <input
                         type="tel"
                         required
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="e.g. 98765 43210"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-2.5 bg-white text-slate-900 placeholder-slate-400 text-sm focus:outline-none"
                       />
                     </div>
+                  </div>
+
+                  {/* Practice Areas Dropdown */}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-700 mb-1.5 font-sans">
+                      Practice Area / Legal Domain
+                    </label>
+                    <select
+                      value={formData.practiceArea}
+                      onChange={(e) => setFormData({ ...formData, practiceArea: e.target.value })}
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:border-slate-950 focus:outline-none transition-colors cursor-pointer"
+                    >
+                      <option value="High Court Writs & Constitutional Law">High Court Writs & Constitutional Law (Articles 226 & 227)</option>
+                      <option value="Criminal Defence & Bail Jurisprudence">Criminal Defence & Bail Jurisprudence (BNSS / CrPC)</option>
+                      <option value="Cyber Law, IT & Digital Forensics">Cyber Law, IT & Digital Forensics (BSA & Tech)</option>
+                      <option value="Corporate & Commercial Disputes">Corporate & Commercial Disputes (NCLT & Courts)</option>
+                      <option value="Civil, Property & Real Estate Law">Civil, Property & Real Estate Law (Partition / Titles)</option>
+                      <option value="Arbitration & Alternate Dispute Resolution">Arbitration & Alternate Dispute Resolution (ADR)</option>
+                      <option value="General Legal Advisory & Consultation">General Legal Advisory & Consultation</option>
+                    </select>
                   </div>
 
                   {/* Message Textarea */}
@@ -149,9 +193,9 @@ export const ContactSection: React.FC = () => {
                       Message
                     </label>
                     <textarea
-                      rows={4}
+                      rows={3}
                       required
-                      placeholder="Leave us a message..."
+                      placeholder="Briefly describe your legal requirement..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 placeholder-slate-400 text-sm focus:border-slate-950 focus:outline-none transition-colors resize-none"

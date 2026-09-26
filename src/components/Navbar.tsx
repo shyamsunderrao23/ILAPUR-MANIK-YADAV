@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Mail, Search, Menu, X } from 'lucide-react'
 
 interface NavbarProps {
@@ -7,6 +7,15 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const navLinks = [
     { label: 'HOME', href: '#home' },
@@ -18,7 +27,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
   ]
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 py-6 bg-gradient-to-b from-black/85 via-black/40 to-transparent text-white">
+    <header 
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 text-white ${
+        isScrolled 
+          ? 'py-3.5 bg-black/95 backdrop-blur-md border-b border-white/10 shadow-2xl' 
+          : 'py-5 bg-gradient-to-b from-black/95 via-black/80 to-black/40 backdrop-blur-sm border-b border-white/5'
+      }`}
+    >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Brand / Logo (Exact clean uppercase styling from Image 1: PAGE LAW) */}
         <a 

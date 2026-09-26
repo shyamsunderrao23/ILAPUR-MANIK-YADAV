@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { 
   ShieldCheck, 
   Scale, 
@@ -11,27 +11,54 @@ import {
 import advocateConstitutionImg from '../assets/advocate_holding_constitution.png'
 
 export const PracticeAreas: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
   const leftAreas = [
     {
       id: 'constitutional-writs',
       title: 'High Court Writs & Constitutional Law',
       tag: 'Articles 226 & 227',
       icon: Landmark,
-      description: 'Challenging arbitrary state action, administrative overreach, tender cancellations, and enforcing fundamental rights with urgent interim stays.'
+      description: 'Challenging arbitrary state action, administrative overreach, tender cancellations, and enforcing fundamental rights with urgent interim stays.',
+      delay: 150
     },
     {
       id: 'criminal-defense',
       title: 'Criminal Defence & Bail Jurisprudence',
       tag: 'BNSS / CrPC & High Court',
       icon: ShieldCheck,
-      description: 'Strategic pre-arrest protection, regular bail, and quashing of unwarranted FIRs and charge sheets under Section 482 CrPC / BNSS.'
+      description: 'Strategic pre-arrest protection, regular bail, and quashing of unwarranted FIRs and charge sheets under Section 482 CrPC / BNSS.',
+      delay: 450
     },
     {
       id: 'cyber-law',
       title: 'Cyber Law, IT & Digital Forensics',
       tag: 'Ph.D. & M.Tech Mastery',
       icon: Cpu,
-      description: 'Leveraging doctorate-level mastery in cyber law to challenge digital evidence admissibility under Section 65B BSA, data breaches, and cyber fraud.'
+      description: 'Leveraging doctorate-level mastery in cyber law to challenge digital evidence admissibility under Section 65B BSA, data breaches, and cyber fraud.',
+      delay: 750
     }
   ]
 
@@ -41,30 +68,45 @@ export const PracticeAreas: React.FC = () => {
       title: 'Corporate & Commercial Disputes',
       tag: 'NCLT & Commercial Courts',
       icon: Building2,
-      description: 'Litigation and representation in company disputes, insolvency proceedings, contractual breaches, and debt recovery.'
+      description: 'Litigation and representation in company disputes, insolvency proceedings, contractual breaches, and debt recovery.',
+      delay: 300
     },
     {
       id: 'property-civil',
       title: 'Civil, Property & Real Estate Law',
       tag: 'Title & Partition Suits',
       icon: FileText,
-      description: 'Resolving high-stake title claims, family partition disputes, specific performance suits, and High Court regular first/second appeals.'
+      description: 'Resolving high-stake title claims, family partition disputes, specific performance suits, and High Court regular first/second appeals.',
+      delay: 600
     },
     {
       id: 'arbitration',
       title: 'Arbitration & Alternate Dispute Resolution',
       tag: 'Domestic & International ADR',
       icon: Scale,
-      description: 'Counsel for domestic and institutional arbitrations, including Section 9 pre-arbitral protective reliefs, Section 11 appointments, and award enforcement.'
+      description: 'Counsel for domestic and institutional arbitrations, including Section 9 pre-arbitral protective reliefs, Section 11 appointments, and award enforcement.',
+      delay: 900
     }
   ]
 
   return (
-    <section id="practice-areas" className="relative z-20 py-20 lg:py-28 bg-white text-slate-900 border-t border-slate-200 overflow-hidden">
+    <section 
+      id="practice-areas" 
+      ref={sectionRef}
+      className="relative z-20 py-20 lg:py-28 bg-white text-slate-900 border-t border-slate-200 overflow-hidden"
+    >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div 
+          className={`text-center max-w-3xl mx-auto mb-16 space-y-3 transition-all duration-700 ease-out transform ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-800 text-xs font-bold uppercase tracking-widest mb-1">
+            <Scale className="w-3.5 h-3.5" />
+            Specialized Legal Practice
+          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sans tracking-tight text-slate-950">
             Core Legal <span className="text-amber-800">Practice Areas</span>
           </h2>
@@ -79,7 +121,9 @@ export const PracticeAreas: React.FC = () => {
           
           {/* SVG Dotted Looped Curved Lines with Arrows (Desktop Only) - Light Tone */}
           <svg 
-            className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block z-0" 
+            className={`absolute inset-0 w-full h-full pointer-events-none hidden lg:block z-0 transition-opacity duration-1000 delay-500 ${
+              isVisible ? 'opacity-100' : 'opacity-0'
+            }`}
             viewBox="0 0 1200 800" 
             preserveAspectRatio="none"
             fill="none"
@@ -163,12 +207,22 @@ export const PracticeAreas: React.FC = () => {
             />
           </svg>
 
-          {/* LEFT COLUMN: Open Practice Area Blocks */}
+          {/* LEFT COLUMN: Open Practice Area Blocks (No boxes / clean open layout) */}
           <div className="relative z-10 lg:col-span-3 xl:col-span-3 space-y-10 order-2 lg:order-1">
             {leftAreas.map((area) => {
               const Icon = area.icon
               return (
-                <div key={area.id} className="space-y-2.5">
+                <div 
+                  key={area.id} 
+                  style={{
+                    transitionDelay: `${area.delay}ms`
+                  }}
+                  className={`space-y-2.5 transition-all duration-700 ease-out transform ${
+                    isVisible 
+                      ? 'opacity-100 translate-y-0 scale-100' 
+                      : 'opacity-0 translate-y-8 scale-95'
+                  }`}
+                >
                   <div className="flex items-center gap-2.5">
                     <div className="p-2 rounded-lg bg-amber-100/70 text-amber-900">
                       <Icon className="w-4 h-4" />
@@ -190,8 +244,13 @@ export const PracticeAreas: React.FC = () => {
             })}
           </div>
 
-          {/* CENTER COLUMN: Central Advocate Portrait with Constitution of India - Increased Size */}
-          <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-center justify-center order-1 lg:order-2 text-center relative py-4 lg:py-0">
+          {/* CENTER COLUMN: Central Advocate Portrait with Constitution of India */}
+          <div 
+            style={{ transitionDelay: '350ms' }}
+            className={`lg:col-span-6 xl:col-span-6 flex flex-col items-center justify-center order-1 lg:order-2 text-center relative py-4 lg:py-0 transition-all duration-1000 ease-out transform ${
+              isVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-8'
+            }`}
+          >
             <div className="relative w-full max-w-[480px] sm:max-w-[540px] lg:max-w-[600px] flex flex-col items-center">
               
               {/* Full Advocate Portrait holding Constitution of India */}
@@ -229,12 +288,22 @@ export const PracticeAreas: React.FC = () => {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Open Practice Area Blocks */}
+          {/* RIGHT COLUMN: Open Practice Area Blocks (No boxes / clean open layout) */}
           <div className="relative z-10 lg:col-span-3 xl:col-span-3 space-y-10 order-3">
             {rightAreas.map((area) => {
               const Icon = area.icon
               return (
-                <div key={area.id} className="space-y-2.5">
+                <div 
+                  key={area.id} 
+                  style={{
+                    transitionDelay: `${area.delay}ms`
+                  }}
+                  className={`space-y-2.5 transition-all duration-700 ease-out transform ${
+                    isVisible 
+                      ? 'opacity-100 translate-y-0 scale-100' 
+                      : 'opacity-0 translate-y-8 scale-95'
+                  }`}
+                >
                   <div className="flex items-center gap-2.5">
                     <div className="p-2 rounded-lg bg-amber-100/70 text-amber-900">
                       <Icon className="w-4 h-4" />
@@ -258,7 +327,13 @@ export const PracticeAreas: React.FC = () => {
 
         </div>
 
+        {/* Horizontal Divider Line */}
+        <div className="mt-16 lg:mt-24">
+          <div className="w-full h-[2px] bg-slate-300" />
+        </div>
+
       </div>
     </section>
   )
 }
+
