@@ -255,18 +255,39 @@ export const ContactSection: React.FC = () => {
 
         {/* Footer Bar (Exact layout with Pill buttons from Reference Image 1) */}
         <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} lwyer.com All rights reserved.</p>
+          <p>© {new Date().getFullYear()} ILAPUR MANIK YADAV. All rights reserved.</p>
 
           <div className="flex flex-wrap items-center gap-2">
-            {['Email', 'X', 'Facebook', 'LinkedIn', 'Instagram'].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="px-4 py-1.5 rounded-full border border-slate-300 text-slate-700 hover:text-black hover:border-slate-900 text-[11px] font-medium transition-colors"
-              >
-                {item}
-              </a>
-            ))}
+            <a
+              href="mailto:contact@manikyadavlaw.com"
+              className="px-4 py-1.5 rounded-full border border-slate-300 text-slate-700 hover:text-black hover:border-slate-900 text-[11px] font-medium transition-colors"
+            >
+              Email
+            </a>
+            <a
+              href="https://x.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-1.5 rounded-full border border-slate-300 text-slate-700 hover:text-black hover:border-slate-900 text-[11px] font-medium transition-colors"
+            >
+              X
+            </a>
+            <a
+              href="https://www.facebook.com/share/19BqWQMrLq/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-1.5 rounded-full border border-slate-300 text-slate-700 hover:text-black hover:border-slate-900 text-[11px] font-medium transition-colors"
+            >
+              Facebook
+            </a>
+            <a
+              href="https://www.instagram.com/dr_ilapur_manik_yadav/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-1.5 rounded-full border border-slate-300 text-slate-700 hover:text-black hover:border-slate-900 text-[11px] font-medium transition-colors"
+            >
+              Instagram
+            </a>
           </div>
         </div>
 
