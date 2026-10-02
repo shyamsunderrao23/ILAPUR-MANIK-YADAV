@@ -21,8 +21,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
     { label: 'HOME', href: '#home' },
     { label: 'ABOUT', href: '#about' },
     { label: 'PRACTICE AREAS', href: '#practice-areas' },
-    { label: 'INSIGHTS', href: '#insights' },
+    // { label: 'INSIGHTS', href: '#insights' }, // Temporarily hidden
     { label: 'VIDEOS', href: '#videos' },
+    { label: 'PHOTOS', href: '#photos' },
     { label: 'FAQS', href: '#faqs' },
     { label: 'CONTACT', href: '#contact' },
   ]

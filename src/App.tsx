@@ -4,8 +4,10 @@ import { Hero } from './components/Hero'
 import { PracticeAreas } from './components/PracticeAreas'
 import { VisionMission } from './components/VisionMission'
 import { CoreValuesExpertise } from './components/CoreValuesExpertise'
-import { InsightsSection } from './components/InsightsSection'
+// import { InsightsSection } from './components/InsightsSection'
 import { VideosSection } from './components/VideosSection'
+import { PhotosSection } from './components/PhotosSection'
+import { AppointmentSection } from './components/AppointmentSection'
 import { FAQSection } from './components/FAQSection'
 import { ContactSection } from './components/ContactSection'
 import { ConsultationModal } from './components/ConsultationModal'
@@ -36,11 +38,17 @@ function App() {
         {/* Core Values & Legal Expertise Section matching reference */}
         <CoreValuesExpertise />
 
-        {/* Legal Insights Section (Pure Black Background) */}
-        <InsightsSection />
+        {/* Legal Insights Section (Temporarily hidden) */}
+        {/* <InsightsSection /> */}
 
         {/* Videos Section matching VIDEOS navbar link */}
         <VideosSection />
+
+        {/* Photos Section matching PHOTOS navbar link (3 in each row, clean grid without hover effect) */}
+        <PhotosSection />
+
+        {/* Appointment Letter & Recognition Section (White background, curved dotted arrow) */}
+        <AppointmentSection />
 
         {/* FAQs Section (Placed above Get in Touch / Contact) */}
         <FAQSection />
