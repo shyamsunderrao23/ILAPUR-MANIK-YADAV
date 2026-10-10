@@ -1,42 +1,41 @@
-import { Scale } from 'lucide-react'
-import advocateSeated from '../assets/advocate_seated.png'
+import advocateHeroMain from '../assets/advocate_hero_main.png'
 
 export const Hero: React.FC = () => {
   return (
     <section 
       id="home" 
-      className="relative w-full min-h-screen bg-black text-white flex flex-col justify-between overflow-hidden"
+      className="relative w-full min-h-[calc(100vh-80px)] bg-black text-white flex flex-col justify-center overflow-hidden"
     >
-      {/* 1. TOP ROW: Left Name/Details & Right Seated Advocate Portrait - Shifted Upwards */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-14 flex-1 flex items-center pt-16 sm:pt-20 pb-4 transform -translate-y-3 sm:-translate-y-6 md:-translate-y-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center w-full">
+      {/* Hero Content: Left Name/Details & Right Advocate Portrait */}
+      <div className="relative z-10 w-full max-w-[1480px] mx-auto px-6 md:px-12 lg:px-14 flex items-center pt-8 sm:pt-12 md:pt-16 pb-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center w-full">
           
           {/* Left Hero Details Box */}
-          <div className="lg:col-span-7 text-left space-y-4 z-10">
+          <div className="lg:col-span-6 text-left space-y-5 sm:space-y-6 z-10 py-6 pr-0 lg:pr-4">
             
             {/* Subtitle */}
             <p className="text-white text-sm sm:text-base md:text-[17px] font-medium tracking-[0.24em] uppercase font-sans-clean">
               Practising Advocate, High Court
             </p>
 
-            {/* Main Name Heading (Exact 2 lines matching Image 2) */}
-            <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-[66px] xl:text-[72px] font-bold uppercase tracking-[0.05em] font-sans leading-[1.08]">
-              <span className="block whitespace-nowrap">ILAPUR MANIK</span>
-              <span className="block">YADAV</span>
+            {/* Main Name Heading (Grand, Prominent 2-Line Typography) */}
+            <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[56px] xl:text-[68px] 2xl:text-[76px] font-extrabold uppercase tracking-[0.04em] font-sans leading-[1.06]">
+              <span className="block">DR. ILAPUR</span>
+              <span className="block">MANIK YADAV</span>
             </h1>
 
             {/* Academic Qualifications */}
-            <p className="text-amber-300 text-sm sm:text-base md:text-[16px] font-semibold tracking-[0.28em] uppercase font-sans-clean pt-0.5">
+            <p className="text-amber-300 text-sm sm:text-base md:text-[17px] font-semibold tracking-[0.28em] uppercase font-sans-clean pt-0.5">
               M.TECH &nbsp;|&nbsp; LL.M &nbsp;|&nbsp; PH.D.
             </p>
 
             {/* Contact Phone */}
-            <div className="pt-1 pb-3">
+            <div className="pt-1 pb-2">
               <a 
-                href="tel:+919849012345" 
-                className="text-white hover:text-amber-300 text-lg sm:text-xl md:text-2xl font-sans tracking-[0.12em] transition-colors font-medium"
+                href="tel:+918555015409" 
+                className="text-white hover:text-amber-300 text-xl sm:text-2xl md:text-[26px] font-sans tracking-[0.12em] transition-colors font-medium"
               >
-                (+91) 98490 12345
+                (+91) 85550 15409
               </a>
             </div>
 
@@ -48,7 +47,7 @@ export const Hero: React.FC = () => {
                   e.preventDefault()
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="px-8 py-4 bg-white text-slate-950 font-sans-clean text-xs sm:text-sm md:text-[14px] font-bold tracking-[0.2em] uppercase hover:bg-slate-200 transition-colors cursor-pointer inline-block shadow-none text-center"
+                className="px-9 py-4.5 bg-white text-slate-950 font-sans-clean text-xs sm:text-sm md:text-[15px] font-bold tracking-[0.2em] uppercase hover:bg-slate-200 transition-colors cursor-pointer inline-block shadow-none text-center"
               >
                 FREE CONSULTATION
               </a>
@@ -56,55 +55,42 @@ export const Hero: React.FC = () => {
 
           </div>
 
-          {/* Right Seated Advocate Portrait Image - Shifted slightly upward */}
-          <div className="lg:col-span-5 flex items-end justify-center lg:justify-end transform -translate-y-1 sm:-translate-y-2 md:-translate-y-3">
+          {/* Right Advocate Half-Body Portrait Image (Bigger & Grand Presence) */}
+          <div className="lg:col-span-6 flex items-center lg:items-end justify-center lg:justify-end transform translate-y-0 sm:translate-y-2 lg:translate-y-4">
             <img 
-              src={advocateSeated} 
-              alt="Advocate Dr. Ilapur Manik Yadav - High Court" 
-              className="w-full max-w-[460px] sm:max-w-[540px] lg:max-w-[580px] max-h-[720px] object-contain object-bottom filter drop-shadow-2xl"
+              src={advocateHeroMain} 
+              alt="Dr. Ilapur Manik Yadav - Practising Advocate, High Court" 
+              className="w-full max-w-[540px] sm:max-w-[620px] lg:max-w-[700px] xl:max-w-[780px] 2xl:max-w-[840px] max-h-[820px] xl:max-h-[900px] object-contain object-bottom filter drop-shadow-2xl transition-transform duration-300 origin-bottom"
             />
           </div>
 
         </div>
       </div>
 
-      {/* 2. BOTTOM ROW: Full Text Content About The Advocate - Shifted Upwards */}
-      <div id="about" className="relative z-20 w-full bg-black pt-0 pb-12 lg:pb-16 -mt-6 sm:-mt-10 md:-mt-14">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-14 space-y-6 text-left">
-          
-          {/* Header Title */}
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-amber-400/10 border border-amber-400/20 text-amber-400">
-              <Scale className="w-4 h-4" />
-            </div>
-            <span className="text-xs uppercase tracking-[0.25em] font-bold text-amber-400 font-sans-clean">
-              About Advocate Dr. Ilapur Manik Yadav
-            </span>
-          </div>
-
-          {/* Heading */}
-          <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-white font-sans leading-snug w-full max-w-6xl">
-            Seasoned High Court Advocate combining premier courtroom advocacy with multi-disciplinary technological and legal mastery.
-          </h3>
-
-          {/* Two Full-Width Narrative Paragraphs */}
-          <div className="space-y-6 text-slate-300 text-sm sm:text-base md:text-[17px] leading-relaxed w-full">
-            
-            {/* Paragraph 1 */}
-            <p>
-              With over <strong className="text-white font-semibold">15+ years of formidable practice at the High Court Bar</strong>, Dr. Ilapur Manik Yadav has built a distinguished reputation across trial courts, appellate tribunals, and the High Court. Over the course of his career, he has successfully represented and secured milestone relief in more than <strong className="text-white font-semibold">500+ court matters</strong>, specializing in High Court Constitutional Writ Petitions (Articles 226 & 227), Anticipatory and Regular Bail jurisprudence, FIR and charge sheet quashing under Section 482 CrPC / BNSS, corporate litigation, property partitions, and defense in complex economic and vigilance offenses.
-            </p>
-
-            {/* Paragraph 2 */}
-            <p>
-              Distinguished by a rare interdisciplinary academic foundation holding a <strong className="text-amber-300 font-semibold">Ph.D. in Cyber Jurisprudence & Law, a Master of Laws (LL.M) in Constitutional & Criminal Law, and a Master of Technology (M.Tech)</strong>, Dr. Manik Yadav brings unparalleled analytical precision to electronic evidence admissibility (Section 65B BSA), cybersecurity compliance, institutional arbitration, and commercial disputes. His practice is anchored in relentless courtroom preparation, strategic judicial navigation, and uncompromising dedication to advocate-client privilege.
-            </p>
-
-          </div>
-
+      {/* Full-Width Legal Practice Areas Strip */}
+      <div className="relative z-20 w-full bg-black/95 border-t border-white/10 py-5 sm:py-6 px-4 sm:px-6 md:px-12 mt-auto">
+        <div className="max-w-[1560px] mx-auto flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 md:gap-x-5 gap-y-2.5 sm:gap-y-3 text-center text-xs sm:text-sm md:text-[15px] lg:text-[16px] tracking-[0.12em] uppercase font-bold text-slate-100">
+          <span className="hover:text-amber-300 transition-colors">Civil</span>
+          <span className="text-amber-400 font-bold select-none">|</span>
+          <span className="hover:text-amber-300 transition-colors">Criminal</span>
+          <span className="text-amber-400 font-bold select-none">|</span>
+          <span className="hover:text-amber-300 transition-colors">Property & Land Disputes</span>
+          <span className="text-amber-400 font-bold select-none">|</span>
+          <span className="hover:text-amber-300 transition-colors">Bail Matters</span>
+          <span className="text-amber-400 font-bold select-none">|</span>
+          <span className="hover:text-amber-300 transition-colors">Divorce & Family Matters</span>
+          <span className="text-amber-400 font-bold select-none">|</span>
+          <span className="hover:text-amber-300 transition-colors">Appeals & Revisions</span>
+          <span className="text-amber-400 font-bold select-none">|</span>
+          <span className="hover:text-amber-300 transition-colors">Writ Petitions</span>
+          <span className="text-amber-400 font-bold select-none">|</span>
+          <span className="hover:text-amber-300 transition-colors">FIR Quashing</span>
+          <span className="text-amber-400 font-bold select-none">|</span>
+          <span className="hover:text-amber-300 transition-colors">Cheque Bounce Cases</span>
+          <span className="text-amber-400 font-bold select-none">|</span>
+          <span className="hover:text-amber-300 transition-colors">Injunction & Declaration Suits</span>
         </div>
       </div>
-
     </section>
   )
 }

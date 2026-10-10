@@ -12,8 +12,8 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
     name: '',
     phone: '',
     email: '',
-    category: 'Criminal Defence / Urgent Bail',
-    consultationType: 'In-Chamber (High Court Chambers)',
+    category: 'Civil Cases',
+    consultationType: 'In-Chamber (High Court)',
     preferredDate: '',
     notes: ''
   })
@@ -92,7 +92,7 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 98490 XXXXX"
+                    placeholder="+91 85550 XXXXX"
                     className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:border-slate-900 focus:bg-white focus:outline-none"
                   />
                 </div>
@@ -122,12 +122,12 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                   className="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:border-slate-900 focus:bg-white focus:outline-none"
                 >
-                  <option>Criminal Defence / Urgent Bail</option>
-                  <option>High Court Writ Petition / Stay</option>
-                  <option>Cyber Forensics / Tech Litigation</option>
-                  <option>Corporate & Commercial Dispute</option>
-                  <option>Property & Real Estate Dispute</option>
-                  <option>Other Legal Assistance</option>
+                  <option>Civil Cases</option>
+                  <option>Criminal Cases</option>
+                  <option>Family Matters</option>
+                  <option>High Court Matters</option>
+                  <option>Property & Land Matters</option>
+                  <option>Property Advices</option>
                 </select>
               </div>
 
@@ -155,11 +155,11 @@ export const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, on
 
               <div className="text-center">
                 <a 
-                  href="tel:+919849012345" 
+                  href="tel:+918555015409" 
                   className="text-xs text-amber-800 hover:underline inline-flex items-center gap-1.5 font-semibold"
                 >
                   <Phone className="w-3.5 h-3.5" />
-                  Need immediate emergency bail? Call: (+91) 98490 12345
+                  Need immediate emergency bail? Call: (+91) 85550 15409
                 </a>
               </div>
             </form>

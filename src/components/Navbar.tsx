@@ -37,13 +37,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex items-center justify-between">
-        {/* Brand / Logo (Exact clean uppercase styling from Image 1: PAGE LAW) */}
+        {/* Brand / Logo */}
         <a 
           href="#home" 
           className="flex items-center tracking-[0.22em] transition-opacity hover:opacity-90"
         >
           <span className="font-sans font-bold text-xl md:text-2xl uppercase tracking-[0.2em] text-white">
-            ILAPUR MANIK YADAV
+            DR. ILAPUR MANIK YADAV
           </span>
         </a>
 

@@ -3,9 +3,9 @@ import {
   ShieldCheck, 
   Scale, 
   FileText, 
-  Cpu, 
   Building2, 
   Landmark, 
+  Users,
   Award
 } from 'lucide-react'
 import advocateConstitutionImg from '../assets/advocate_holding_constitution.png'
@@ -37,54 +37,54 @@ export const PracticeAreas: React.FC = () => {
 
   const leftAreas = [
     {
-      id: 'constitutional-writs',
-      title: 'High Court Writs & Constitutional Law',
-      tag: 'Articles 226 & 227',
-      icon: Landmark,
-      description: 'Challenging arbitrary state action, administrative overreach, tender cancellations, and enforcing fundamental rights with urgent interim stays.',
+      id: 'civil-case',
+      title: 'Civil Cases',
+      tag: 'Civil Litigation & Suits',
+      icon: Scale,
+      description: 'Comprehensive representation in money recovery, breach of contract, specific performance, injunctions, and appellate civil proceedings.',
       delay: 150
     },
     {
-      id: 'criminal-defense',
-      title: 'Criminal Defence & Bail Jurisprudence',
-      tag: 'BNSS / CrPC & High Court',
+      id: 'criminal-case',
+      title: 'Criminal Cases',
+      tag: 'Defence & Bail Jurisprudence',
       icon: ShieldCheck,
-      description: 'Strategic pre-arrest protection, regular bail, and quashing of unwarranted FIRs and charge sheets under Section 482 CrPC / BNSS.',
+      description: 'Strategic pre-arrest protection, regular bail, quashing of unwarranted FIRs/charge sheets under BNSS/CrPC, and trial defense.',
       delay: 450
     },
     {
-      id: 'cyber-law',
-      title: 'Cyber Law, IT & Digital Forensics',
-      tag: 'Ph.D. & M.Tech Mastery',
-      icon: Cpu,
-      description: 'Leveraging doctorate-level mastery in cyber law to challenge digital evidence admissibility under Section 65B BSA, data breaches, and cyber fraud.',
+      id: 'family-matters',
+      title: 'Family Matters',
+      tag: 'Matrimonial & Custody Law',
+      icon: Users,
+      description: 'Strategic legal counsel in divorce proceedings, child custody, maintenance claims, domestic violence protection, and family settlements.',
       delay: 750
     }
   ]
 
   const rightAreas = [
     {
-      id: 'corporate-litigation',
-      title: 'Corporate & Commercial Disputes',
-      tag: 'NCLT & Commercial Courts',
-      icon: Building2,
-      description: 'Litigation and representation in company disputes, insolvency proceedings, contractual breaches, and debt recovery.',
+      id: 'highcourt-matters',
+      title: 'High Court Matters',
+      tag: 'Writs & Appellate Jurisdiction',
+      icon: Landmark,
+      description: 'Filing and arguing Article 226/227 Writ Petitions, challenging arbitrary administrative actions, and securing urgent stays.',
       delay: 300
     },
     {
-      id: 'property-civil',
-      title: 'Civil, Property & Real Estate Law',
-      tag: 'Title & Partition Suits',
-      icon: FileText,
-      description: 'Resolving high-stake title claims, family partition disputes, specific performance suits, and High Court regular first/second appeals.',
+      id: 'property-land-matters',
+      title: 'Property & Land Matters',
+      tag: 'Land Disputes & Title Suits',
+      icon: Building2,
+      description: 'Resolving agricultural and urban land disputes, partition suits, boundary demarcations, Section 22A issues, and anti-encroachment actions.',
       delay: 600
     },
     {
-      id: 'arbitration',
-      title: 'Arbitration & Alternate Dispute Resolution',
-      tag: 'Domestic & International ADR',
-      icon: Scale,
-      description: 'Counsel for domestic and institutional arbitrations, including Section 9 pre-arbitral protective reliefs, Section 11 appointments, and award enforcement.',
+      id: 'property-advices',
+      title: 'Property Advices',
+      tag: 'Title Due Diligence & Opinion',
+      icon: FileText,
+      description: 'In-depth legal scrutiny of title deeds, encumbrance verification, mutation advisory, and drafting ironclad purchase & lease agreements.',
       delay: 900
     }
   ]
@@ -257,7 +257,7 @@ export const PracticeAreas: React.FC = () => {
               <div className="relative w-full flex items-center justify-center">
                 <img 
                   src={advocateConstitutionImg} 
-                  alt="Advocate Dr. Ilapur Manik Yadav holding Constitution of India" 
+                  alt="Dr. Ilapur Manik Yadav holding Constitution of India" 
                   className="w-auto h-[520px] sm:h-[620px] lg:h-[720px] xl:h-[780px] max-w-full object-contain"
                 />
               </div>

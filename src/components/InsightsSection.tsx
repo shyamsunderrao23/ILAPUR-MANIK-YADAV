@@ -285,7 +285,7 @@ export const InsightsSection: React.FC = () => {
         {/* Main Section Header */}
         <div className="space-y-4 text-left w-full">
           <p className="text-amber-400 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase font-sans-clean">
-            Advocate Dr. Ilapur Manik Yadav &nbsp;|&nbsp; Knowledge Hub
+            Dr. Ilapur Manik Yadav &nbsp;|&nbsp; Knowledge Hub
           </p>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white font-sans tracking-tight">
@@ -633,7 +633,7 @@ export const InsightsSection: React.FC = () => {
               Require Legal Representation or Specific Case Opinion?
             </h4>
             <p className="text-xs sm:text-sm text-neutral-400">
-              Schedule a confidential consultation with Advocate Dr. Ilapur Manik Yadav.
+              Schedule a confidential consultation with Dr. Ilapur Manik Yadav.
             </p>
           </div>
 

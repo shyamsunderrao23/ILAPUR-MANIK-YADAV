@@ -41,8 +41,8 @@ export const PhotosSection: React.FC = () => {
     {
       id: 1,
       src: photo1,
-      alt: 'Advocate Dr. Ilapur Manik Yadav with Dignitaries and Legal Fraternity',
-      title: 'Advocate Dr. Ilapur Manik Yadav with Dignitaries and Legal Fraternity'
+      alt: 'Dr. Ilapur Manik Yadav with Dignitaries and Legal Fraternity',
+      title: 'Dr. Ilapur Manik Yadav with Dignitaries and Legal Fraternity'
     },
     {
       id: 2,
@@ -89,8 +89,8 @@ export const PhotosSection: React.FC = () => {
     {
       id: 9,
       src: photo9,
-      alt: 'Honoring Advocate Dr. Manik Yadav at Ceremonial Gathering',
-      title: 'Honoring Advocate Dr. Manik Yadav at Ceremonial Gathering'
+      alt: 'Honoring Dr. Ilapur Manik Yadav at Ceremonial Gathering',
+      title: 'Honoring Dr. Ilapur Manik Yadav at Ceremonial Gathering'
     },
     {
       id: 10,
@@ -107,8 +107,8 @@ export const PhotosSection: React.FC = () => {
     {
       id: 12,
       src: photo12,
-      alt: 'Advocate Dr. Ilapur Manik Yadav Addressing the Assembly',
-      title: 'Advocate Dr. Ilapur Manik Yadav Addressing the Assembly'
+      alt: 'Dr. Ilapur Manik Yadav Addressing the Assembly',
+      title: 'Dr. Ilapur Manik Yadav Addressing the Assembly'
     },
     {
       id: 13,
@@ -131,8 +131,8 @@ export const PhotosSection: React.FC = () => {
     {
       id: 16,
       src: photo16,
-      alt: 'Press Coverage: High Court Advocate Dr. Ilapur Manik Yadav Demands Clarity on GO 97',
-      title: 'Press Coverage: High Court Advocate Dr. Ilapur Manik Yadav Demands Clarity on GO 97'
+      alt: 'Press Coverage: Dr. Ilapur Manik Yadav Demands Clarity on GO 97',
+      title: 'Press Coverage: Dr. Ilapur Manik Yadav Demands Clarity on GO 97'
     },
     {
       id: 17,

@@ -53,8 +53,8 @@ export const FAQSection: React.FC = () => {
     {
       id: 'faq-4',
       category: 'Cyber Jurisprudence & Digital Evidence',
-      question: 'How does Dr. Manik Yadav’s technological expertise assist in cybercrime and commercial trials?',
-      answer: 'Holding a Ph.D. in Cyber Jurisprudence and an M.Tech alongside his LL.M, Dr. Manik Yadav brings deep forensic comprehension to digital trials. He specializes in scrutinizing electronic audit trails, cross-examining cyber forensics lab personnel, verifying cryptographic hash (SHA-256) integrity, and challenging uncertified digital extractions under Section 63 of Bharatiya Sakshya Adhiniyam (BSA) / Section 65B Evidence Act.',
+      question: 'How does Dr. Ilapur Manik Yadav’s technological expertise assist in cybercrime and commercial trials?',
+      answer: 'Holding a Ph.D. in Cyber Jurisprudence and an M.Tech alongside his LL.M, Dr. Ilapur Manik Yadav brings deep forensic comprehension to digital trials. He specializes in scrutinizing electronic audit trails, cross-examining cyber forensics lab personnel, verifying cryptographic hash (SHA-256) integrity, and challenging uncertified digital extractions under Section 63 of Bharatiya Sakshya Adhiniyam (BSA) / Section 65B Evidence Act.',
       highlights: [
         'Forensic analysis of server logs, email headers, and mobile memory dumps.',
         'Rigorous compliance audit of Section 63 BSA electronic certificates.',
@@ -75,8 +75,8 @@ export const FAQSection: React.FC = () => {
     {
       id: 'faq-6',
       category: 'Jurisdiction & Multi-State Practice',
-      question: 'Can Advocate Dr. Ilapur Manik Yadav represent clients in other High Courts and tribunals?',
-      answer: 'Yes. While primarily based at the High Court Bar, Dr. Manik Yadav regularly represents corporate, institutional, and private clients before the Supreme Court of India, National Company Law Tribunal (NCLT), National Green Tribunal (NGT), Appellate Tribunal for Electricity (APTEL), and various High Courts across India.',
+      question: 'Can Dr. Ilapur Manik Yadav represent clients in other High Courts and tribunals?',
+      answer: 'Yes. While primarily based at the High Court Bar, Dr. Ilapur Manik Yadav regularly represents corporate, institutional, and private clients before the Supreme Court of India, National Company Law Tribunal (NCLT), National Green Tribunal (NGT), Appellate Tribunal for Electricity (APTEL), and various High Courts across India.',
       highlights: [
         'Pan-India representation before Supreme Court, High Courts, and Central Tribunals.',
         'Specialized representation in Commercial Appellate Divisions and Arbitration Panels.',
@@ -191,13 +191,13 @@ export const FAQSection: React.FC = () => {
               Have a Specific Legal Query Not Listed Here?
             </h4>
             <p className="text-xs sm:text-sm text-slate-600">
-              Directly connect with the chamber of Advocate Dr. Ilapur Manik Yadav.
+              Directly connect with the chamber of Dr. Ilapur Manik Yadav.
             </p>
           </div>
 
           <div className="flex flex-wrap items-center gap-4">
             <a
-              href="tel:+919849012345"
+              href="tel:+918555015409"
               className="px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-950 font-sans-clean text-xs sm:text-sm font-bold tracking-wider uppercase transition-colors inline-flex items-center gap-2 rounded border border-slate-300 cursor-pointer"
             >
               <PhoneCall className="w-4 h-4 text-amber-700" />

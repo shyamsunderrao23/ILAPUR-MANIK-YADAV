@@ -1,154 +1,180 @@
 import React from 'react'
-import { GraduationCap, Scale, CheckCircle2, ArrowRight, Gavel, Landmark } from 'lucide-react'
+import { Scale } from 'lucide-react'
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 md:py-32 bg-white text-slate-900 border-t border-slate-100">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-14">
+    <section 
+      id="about" 
+      className="relative z-20 py-20 lg:py-28 bg-black text-white border-t border-white/10 overflow-hidden"
+    >
+      <div className="max-w-[1400px] mx-auto px-6 md:px-14 space-y-16 text-left">
         
-        {/* Section Heading */}
-        <div className="max-w-3xl mb-16 space-y-3">
-          <p className="text-amber-700 text-xs sm:text-sm font-bold tracking-[0.25em] uppercase font-sans-clean flex items-center gap-2">
+        {/* Section Header */}
+        <div className="space-y-4 w-full">
+          <div className="inline-flex items-center gap-2 text-amber-400 text-xs sm:text-sm font-bold tracking-[0.25em] uppercase font-sans-clean">
             <Scale className="w-4 h-4" />
-            <span>Advocate Profile & Credentials</span>
-          </p>
-          <h2 className="text-3xl sm:text-5xl lg:text-[52px] font-bold text-slate-950 font-sans tracking-tight leading-[1.12]">
-            Dedicated High Court Advocacy with Multi-Disciplinary Excellence
+            <span>Advocate Profile & Life Journey</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-bold text-white font-sans tracking-tight leading-[1.18]">
+            From the Soil of Ilapur to the <span className="text-amber-400">Halls of Justice</span>
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed pt-2">
-            Combining extensive courtroom litigation experience with advanced academic credentials in Law and Technology (<strong>M.Tech | LL.M | Ph.D.</strong>) to deliver strategic legal solutions.
+
+          <p className="text-slate-400 text-base sm:text-lg leading-relaxed">
+            The inspiring life story, constitutional awakening, and public service of <strong>Dr. Ilapur Manik Yadav</strong>—advocate, scholar, youth leader, and agrarian champion.
           </p>
+          <div className="w-20 h-1 bg-amber-400 rounded-full mt-3" />
         </div>
 
-        {/* 3-Column Highlight Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        {/* Narrative Flow: Pure Open Paragraphs Extended Full Width */}
+        <div className="space-y-14 text-slate-300 text-base sm:text-[17px] leading-relaxed w-full">
           
-          {/* Card 1: Academic Pedigree */}
-          <div className="rounded-3xl border border-slate-200/90 bg-slate-50/50 p-8 space-y-5 hover:shadow-md hover:border-slate-300 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center">
-              <GraduationCap className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-950 font-sans">
-              Academic Pedigree
+          {/* Section 1 */}
+          <div className="space-y-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white font-sans flex items-center gap-3">
+              <span>🌅</span>
+              <span>Humble Beginnings & An Identity Born from Soil</span>
             </h3>
-            <div className="space-y-3 text-sm">
-              <div className="border-l-2 border-amber-600 pl-3">
-                <span className="font-bold text-slate-900 block font-sans">Ph.D. in Law & Technology</span>
-                <span className="text-xs text-slate-600">Advanced doctoral research in Cyber Jurisprudence & Electronic Evidence</span>
-              </div>
-              <div className="border-l-2 border-slate-300 pl-3">
-                <span className="font-bold text-slate-900 block font-sans">LL.M (Master of Laws)</span>
-                <span className="text-xs text-slate-600">Constitutional Litigation & Criminal Law specializations</span>
-              </div>
-              <div className="border-l-2 border-slate-300 pl-3">
-                <span className="font-bold text-slate-900 block font-sans">M.Tech (Technology)</span>
-                <span className="text-xs text-slate-600">Technical depth providing an edge in IT, cyber forensic & IP matters</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 2: Courtroom Practice */}
-          <div className="rounded-3xl border border-slate-200/90 bg-slate-50/50 p-8 space-y-5 hover:shadow-md hover:border-slate-300 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center">
-              <Gavel className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-950 font-sans">
-              Courtroom Practice
-            </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Regular appearance before the Hon’ble High Court benches, Appellate Tribunals, and Special Courts representing corporate institutions and private clients in high-stakes matters.
-            </p>
-            <div className="space-y-2 pt-2 text-xs font-medium text-slate-700">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-700 flex-shrink-0" />
-                <span>High Court Writs (Article 226 / 227 Petitions)</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-700 flex-shrink-0" />
-                <span>Anticipatory & Regular Bail Jurisprudence</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-700 flex-shrink-0" />
-                <span>Section 482 Quashing & Criminal Defense</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 3: Key Experience Numbers */}
-          <div className="rounded-3xl border border-slate-200/90 bg-slate-50/50 p-8 space-y-6 flex flex-col justify-between hover:shadow-md hover:border-slate-300 transition-all">
-            <div className="space-y-5">
-              <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center">
-                <Landmark className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-950 font-sans">
-                Professional Record
-              </h3>
-            </div>
             
-            <div className="grid grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                <div className="text-2xl sm:text-3xl font-bold text-slate-950 font-sans">15+</div>
-                <div className="text-xs text-slate-500 font-medium mt-1">Years at Bar</div>
-              </div>
-              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
-                <div className="text-2xl sm:text-3xl font-bold text-amber-700 font-sans">500+</div>
-                <div className="text-xs text-slate-500 font-medium mt-1">Court Matters</div>
-              </div>
-            </div>
-
-            <p className="text-xs text-slate-500 leading-relaxed">
-              Member of the High Court Bar Association. Committed to uncompromising client confidentiality and ethical advocacy.
-            </p>
-          </div>
-
-        </div>
-
-        {/* Practice Areas Summary Grid */}
-        <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-12 shadow-sm">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-950 font-sans">
-                Core Practice Areas
-              </h3>
-              <p className="text-slate-500 text-sm mt-1">
-                Strategic counsel across specialized judicial forums
+            <div className="space-y-4 pt-1">
+              <p>
+                Dr. Ilapur Manik Yadav was born into a small, middle-class farming household in Ilapur Village, situated in the Ameenpur mandal of the Patancheru constituency, Telangana. From his earliest years, hardship walked beside him. While other children had uninterrupted childhoods, Manik divided his days between muddy crop fields and school notebooks, working alongside his family as an active farmer.
               </p>
-            </div>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-800 hover:text-amber-950"
-            >
-              <span>Consult On Your Matter</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-              <h4 className="font-bold text-slate-950 text-base mb-1.5">High Court Writs</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Mandamus, Certiorari, stay orders, service law disputes & government tender challenges.
+              <p>
+                His devotion to his birthplace ran so deep that he made a defining personal vow: he officially adopted his village’s name—Ilapur—as his permanent surname. No matter how far his education or career reached, the identity of his village would lead the way.
               </p>
-            </div>
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-              <h4 className="font-bold text-slate-950 text-base mb-1.5">Criminal Defense</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Bail hearings, FIR quashing, ACB/ED economic offense defense, and trial representation.
-              </p>
-            </div>
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-              <h4 className="font-bold text-slate-950 text-base mb-1.5">Cyber & Tech Law</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Sec 65B electronic evidence admissibility, data protection, cyber fraud & IP disputes.
-              </p>
-            </div>
-            <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
-              <h4 className="font-bold text-slate-950 text-base mb-1.5">Commercial & Arbitration</h4>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Contractual enforcement, shareholder disputes, NCLT insolvency & arbitral tribunals.
+
+              <p>
+                Financially constrained, he pursued his schooling entirely in the Telugu medium up to Class 10. Despite having to balance grueling manual farm work with study hours under dim lights, his academic resilience showed: he graduated his 10th-grade board examinations with Distinction marks.
               </p>
             </div>
           </div>
+
+          <div className="w-full h-px bg-white/10" />
+
+          {/* Section 2 */}
+          <div className="space-y-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white font-sans flex items-center gap-3">
+              <span>📚</span>
+              <span>Stepping into the Unknown & Mentorship</span>
+            </h3>
+
+            <div className="space-y-4 pt-1">
+              <p>
+                Determined to shatter limits, Manik made a brave decision to transition straight into the English medium for his Intermediate education (11th and 12th grades). The language barrier was formidable, but through sheer perseverance, he mastered his coursework without ever abandoning his farming chores back home.
+              </p>
+
+              <p>
+                During his college graduation, his consistency and discipline caught the eye of a close lecturer and mentor. Recognizing Manik's sharp intellect and urgent need for self-reliance, the mentor helped him secure his first professional position as a college lecturer, earning a modest monthly salary of ₹15,000. Stepping in front of a classroom transformed him, sharpening the stage confidence, clarity of thought, and persuasive speech that would later define his public career.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full h-px bg-white/10" />
+
+          {/* Section 3 */}
+          <div className="space-y-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white font-sans flex items-center gap-3">
+              <span>📈</span>
+              <span>The Land Strategy & An Awakening</span>
+            </h3>
+
+            <div className="space-y-4 pt-1">
+              <p>
+                Rather than inflating his lifestyle with his ₹15,000 salary, Manik practiced strict financial discipline. He pooled and saved nearly every rupee until he had enough capital to purchase his very first 1-acre parcel of land in his native Ilapur.
+              </p>
+
+              <p>
+                Understanding local agrarian value and future urban corridors, he systematically expanded this blueprint over time: acquiring land, cultivating and developing it, and strategically selling parcels to reinvest into larger holdings. This journey lifted his family out of debt and built strong financial security.
+              </p>
+
+              <p className="italic text-amber-200">
+                Yet, as commercial wealth accumulated, an inner unrest began to trouble him: "How long will I just buy and sell land? How many days will my life just be about personal gain? What will my legacy be, and how can my village be truly remembered?"
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full h-px bg-white/10" />
+
+          {/* Section 4 */}
+          <div className="space-y-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white font-sans flex items-center gap-3">
+              <span>⚖️</span>
+              <span>Rising as an Advocate (The Ambedkarite Fire)</span>
+            </h3>
+
+            <div className="space-y-4 pt-1">
+              <p>
+                To build a lasting legacy that could defend ordinary citizens, Manik turned to the ultimate inspiration of social justice and constitutional empowerment: Dr. B.R. Ambedkar. Guided by Babasaheb’s clarion call to "Educate, Agitate, Organise," Manik realized that the legal framework was the most potent weapon to shield the vulnerable and challenge systemic injustice.
+              </p>
+
+              <p>
+                He pursued his law degree, successfully earning his LL.B., and continued an extraordinary academic journey that eventually culminated in an M.Tech, an LL.M., and a Ph.D.. After gaining critical insight working in corporate legal frameworks, he transitioned to independent litigation, establishing himself as a formidable High Court Advocate in Telangana. Today, he uses his legal platform to handle complex civil, land, and public disputes, standing firm against unlawful land grabs and administrative overreach.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full h-px bg-white/10" />
+
+          {/* Section 5 */}
+          <div className="space-y-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white font-sans flex items-center gap-3">
+              <span>🏛️</span>
+              <span>Political Leadership in the BRS Party</span>
+            </h3>
+
+            <div className="space-y-4 pt-1">
+              <p>
+                Recognizing that systemic public change requires both constitutional advocacy and political will, Dr. Ilapur Manik Yadav formally stepped into mainstream politics as a prominent Youth Leader and key executive voice in the Bharat Rashtra Samithi (BRS).
+              </p>
+
+              <p>
+                <strong className="text-white font-semibold">BRS Legal Cell Pillar:</strong> Leveraging his legal acumen, he serves as a leading force in the BRS Legal Cell, defending party cadres, fighting unlawful government actions in court, and challenging complex regional administrative policies such as Section 22A land restrictions.
+              </p>
+
+              <p>
+                <strong className="text-white font-semibold">Mass Youth Mobilization:</strong> Operating across Patancheru, Ameenpur, and Beeramguda, he mobilizes thousands of rural youths for public rights, organizing rallies, farmer agitations (such as Rythu Bharosa protests), and regional party campaigns under senior BRS leadership.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full h-px bg-white/10" />
+
+          {/* Section 6 */}
+          <div className="space-y-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white font-sans flex items-center gap-3">
+              <span>🌾</span>
+              <span>Ground-Level Development & Service in Ilapur</span>
+            </h3>
+
+            <div className="space-y-4 pt-1">
+              <p>
+                Dr. Ilapur Manik Yadav’s journey has come full circle. He has directed his resources, legal access, and political standing straight back into transforming Ilapur and surrounding rural pockets:
+              </p>
+
+              <p>
+                <strong className="text-white font-semibold">Legal Awareness & Free Aid Clinics:</strong> Alongside the District Legal Services Authority (DLSA) and senior district judges, he regularly hosts institutional Legal Literacy Programs across Ilapur and Ameenpur, educating rural students and youth on constitutional rights, cybercrime, anti-ragging laws, and the POCSO Act.
+              </p>
+
+              <p>
+                <strong className="text-white font-semibold">Protecting Agricultural Land:</strong> Using his legal background, he actively advises native farmers against predatory real estate encroachers, ensuring local families retain rightful ownership of their ancestral soil.
+              </p>
+
+              <p>
+                <strong className="text-white font-semibold">Youth Health & Community Initiatives:</strong> He spearheads massive youth blood donation drives in Ilapur village and sponsors large-scale community kitchens (Annadhanam) during cultural celebrations across Ilapur, Kishtareddypet, Dayara, and Gandigudem.
+              </p>
+
+              <p>
+                <strong className="text-white font-semibold">Civic Infrastructure Advocacy:</strong> He persistently lobbies municipal bodies and urban authorities for asphalt road connectivity, proper drainage networks, drinking water provisions, and primary school welfare for Ilapur.
+              </p>
+
+              <p className="pt-2 text-white font-medium">
+                For Dr. Ilapur Manik Yadav, keeping his village's name as his surname is not a symbolic gesture—it is a living covenant that the soil which raised him will never be left behind.
+              </p>
+            </div>
+          </div>
+
         </div>
 
       </div>

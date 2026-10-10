@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
+import { About } from './components/About'
 import { PracticeAreas } from './components/PracticeAreas'
 import { VisionMission } from './components/VisionMission'
 import { CoreValuesExpertise } from './components/CoreValuesExpertise'
@@ -28,6 +29,9 @@ function App() {
       <main className="flex-1 w-full">
         {/* Unified Hero Section (Left Details + Right Seated Image + Bottom About Narrative) */}
         <Hero />
+
+        {/* Dedicated About & Life Journey Section (6 Phases & Lifecycle Matrix) */}
+        <About />
 
         {/* Practice Areas Section with Center Advocate holding Constitution */}
         <PracticeAreas />

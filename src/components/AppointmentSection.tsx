@@ -37,7 +37,7 @@ export const AppointmentSection: React.FC = () => {
             <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-full flex justify-center">
               <img
                 src={advocateStanding}
-                alt="Advocate Dr. Ilapur Manik Yadav - Telangana State Working President"
+                alt="Dr. Ilapur Manik Yadav - Telangana State Working President"
                 className="w-full h-auto max-h-[680px] object-contain filter drop-shadow-2xl select-none"
               />
             </div>
@@ -104,7 +104,7 @@ export const AppointmentSection: React.FC = () => {
               <div className="relative rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-inner max-h-[460px] sm:max-h-[490px] lg:max-h-[510px] aspect-[1/1.32] flex items-center justify-center">
                 <img
                   src={appointmentLetter}
-                  alt="Telangana Legal Student Association Appointment Letter - Mr. Ilapur Manik Yadav"
+                  alt="Telangana Legal Student Association Appointment Letter - Dr. Ilapur Manik Yadav"
                   className="w-full h-full object-contain object-top"
                 />
 
@@ -143,7 +143,7 @@ export const AppointmentSection: React.FC = () => {
               <div className="flex items-center gap-2.5">
                 <FileText className="w-5 h-5 text-amber-600" />
                 <h3 className="text-sm sm:text-base md:text-lg font-bold text-slate-950">
-                  TLSA Appointment Letter &mdash; Mr. Ilapur Manik Yadav (State Working President)
+                  TLSA Appointment Letter &mdash; Dr. Ilapur Manik Yadav (State Working President)
                 </h3>
               </div>
               <button

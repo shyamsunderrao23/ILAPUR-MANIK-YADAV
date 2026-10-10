@@ -17,7 +17,7 @@ export const InTheNews: React.FC = () => {
       source: 'The Law Chronicle',
       date: 'May 2024',
       title: 'High Court Grants Urgent Protection in Landmark AI & Copyright Dispute',
-      desc: 'Advocate Manik Yadav successfully argues before the High Court on jurisdictional boundaries and safe-harbor liabilities for tech platforms.',
+      desc: 'Dr. Ilapur Manik Yadav successfully argues before the High Court on jurisdictional boundaries and safe-harbor liabilities for tech platforms.',
       tag: 'Case Report',
       readTime: '4 min read'
     },

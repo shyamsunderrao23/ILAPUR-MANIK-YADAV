@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ArrowUpRight, Check } from 'lucide-react'
-import advocateStanding from '../assets/advocate_standing.png'
+import advocateContact from '../assets/advocate_contact.png'
 
 export const ContactSection: React.FC = () => {
   const [agreed, setAgreed] = useState(false)
@@ -11,7 +11,7 @@ export const ContactSection: React.FC = () => {
     lastName: '',
     email: '',
     phone: '',
-    practiceArea: 'High Court Writs & Constitutional Law',
+    practiceArea: 'Civil Cases',
     message: ''
   })
 
@@ -23,7 +23,7 @@ export const ContactSection: React.FC = () => {
       `*Practice Area:* ${formData.practiceArea}\n` +
       `*Requirement:* ${formData.message}`
 
-    return `https://wa.me/919652440024?text=${encodeURIComponent(text)}`
+    return `https://wa.me/918555015409?text=${encodeURIComponent(text)}`
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -41,12 +41,12 @@ export const ContactSection: React.FC = () => {
         <div className="rounded-[32px] border border-slate-200/90 bg-white shadow-xl shadow-slate-100/80 p-6 sm:p-8 md:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Left Column: Advocate Standing Photo (2nd Image) */}
-            <div className="lg:col-span-6 flex items-center justify-center">
+            {/* Left Column: Advocate Photo */}
+            <div className="lg:col-span-6 flex items-center justify-center py-4 lg:py-6 overflow-visible">
               <img 
-                src={advocateStanding} 
+                src={advocateContact} 
                 alt="Dr. Ilapur Manik Yadav - Advocate High Court" 
-                className="w-full max-h-[620px] object-contain object-bottom"
+                className="w-full max-w-[540px] sm:max-w-[580px] lg:max-w-[640px] max-h-[750px] lg:max-h-[820px] object-contain drop-shadow-xl transform scale-110 sm:scale-115 lg:scale-125 transition-transform duration-300"
               />
             </div>
 
@@ -177,13 +177,12 @@ export const ContactSection: React.FC = () => {
                       onChange={(e) => setFormData({ ...formData, practiceArea: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-900 text-sm focus:border-slate-950 focus:outline-none transition-colors cursor-pointer"
                     >
-                      <option value="High Court Writs & Constitutional Law">High Court Writs & Constitutional Law (Articles 226 & 227)</option>
-                      <option value="Criminal Defence & Bail Jurisprudence">Criminal Defence & Bail Jurisprudence (BNSS / CrPC)</option>
-                      <option value="Cyber Law, IT & Digital Forensics">Cyber Law, IT & Digital Forensics (BSA & Tech)</option>
-                      <option value="Corporate & Commercial Disputes">Corporate & Commercial Disputes (NCLT & Courts)</option>
-                      <option value="Civil, Property & Real Estate Law">Civil, Property & Real Estate Law (Partition / Titles)</option>
-                      <option value="Arbitration & Alternate Dispute Resolution">Arbitration & Alternate Dispute Resolution (ADR)</option>
-                      <option value="General Legal Advisory & Consultation">General Legal Advisory & Consultation</option>
+                      <option value="Civil Cases">Civil Cases</option>
+                      <option value="Criminal Cases">Criminal Cases</option>
+                      <option value="Family Matters">Family Matters</option>
+                      <option value="High Court Matters">High Court Matters</option>
+                      <option value="Property & Land Matters">Property & Land Matters</option>
+                      <option value="Property Advices">Property Advices</option>
                     </select>
                   </div>
 
@@ -255,7 +254,7 @@ export const ContactSection: React.FC = () => {
 
         {/* Footer Bar (Exact layout with Pill buttons from Reference Image 1) */}
         <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} ILAPUR MANIK YADAV. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Dr. Ilapur Manik Yadav. All rights reserved.</p>
 
           <div className="flex flex-wrap items-center gap-2">
             <a
